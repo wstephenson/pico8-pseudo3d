@@ -14,8 +14,9 @@ end
 function _draw()
 	cls()
 	for i=1,#tiles do
-		j=tiles[i]
-		spr(j+1,0,cos(i/#tiles+ang/100)*64+64)
+		local j=tiles[i]
+		local th=i/#tiles+ang/100
+		spr(j+1,12+sin(th)*12,cos(th)*60+60)
 	end
 end
 
