@@ -3,26 +3,46 @@ version 8
 __lua__
 tiles={}
 ang=0
+s_ang=0
+c_ang=0
 
 function _init()
-	for i=1,16 do
-		add(tiles,0)
+	for i=1,24 do
+		add(tiles,2)
 		add(tiles,1)
 	end
 end
 
 function _draw()
 	cls()
-	for i=1,#tiles do
-		local j=tiles[i]
-		local th=i/#tiles+ang/100
-		spr(j+1,12+sin(th)*12,cos(th)*60+60)
+	for k=0,15 do
+  printh(k%2)
+		for i=1,#tiles do
+			local j=tiles[i]
+			local th=i/#tiles+ang/100
+			if(sin(th)<0)then
+					local x=k*8+12+sin(th)*12
+					local y=cos(th)*72+64
+				spr((j+k%2)%2+1,x,y)
+			end
+		end
 	end
 end
 
 function _update()
-	ang+=1
-	if(ang==100)i=0
+	s_ang+=0.33
+	if(s_ang>99)s_ang=0
+	if(btn(2))then
+		printh("btn2")
+		c_ang-=5
+		if(c_ang<0)then c_ang=99 end
+	end
+	if(btn(3))then
+		printh("btn3")
+		c_ang+=5
+		if(c_ang>99)then c_ang=0 end
+	end
+	ang=(s_ang+c_ang)%100
 end
 __gfx__
 00000000777777775555555500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
