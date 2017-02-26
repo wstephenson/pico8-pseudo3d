@@ -12,6 +12,7 @@ Rendering
 - Fill tile arrays based on velocity?
 - Camera: Lag behind drone up to some maximum (defined by drone velocity?)
 - Squash sprites up the walls?
+- Drone needs black mask to stand out from bg features
 Mechanics
 - Objects' world locations defined by X coord and angle
 - Controls - import from LC and replace vy with avy
