@@ -2,10 +2,10 @@ pico-8 cartridge // http://www.pico-8.com
 version 8
 __lua__
 y_res=128
+y_w=0
 
 function _draw()
 	cls()
-	local y_w = 10
 	local dist= 5
 	local z_w=20
 	local y_s=(y_w*dist)/z_w+y_res/2
@@ -18,6 +18,8 @@ function _init()
 end
 
 function _update()
+	y_w+=1
+	if(y_w==100)y_w=0
 end
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
